@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+.container  {
+  display: grid;
+  grid-template-areas:  "left center right";
+  text-align: left;
+  margin: 1rem;
+}
+.city1  {
+  grid-area: left;
+}
+.city2  {
+  grid-area: center;
+}
+.city3  {
+  grid-area: right;
+}
+.city-style {
+  padding: 1.5rem;
+  border: 1px solid black;
+}
