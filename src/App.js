@@ -1,21 +1,14 @@
 import React from 'react';
 import NavBar from './components/NavBar';
+import SignUpModal from './components/modals/SignUpModal'
 import routes from './config/routes'
-
-
 
 import './App.css';
 
-function SignUpModal({ onCancel }) {
-  console.log('render signup')
-  return (
-    <div className="modal signup-modal" onClick={onCancel}></div>
-  )
-}
-
 class App extends React.Component {
   state = {
-    isSignUpClicked: false
+    isSignUpClicked: false,
+    isLoginClicked: false
   }
 
   render() {
