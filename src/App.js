@@ -1,21 +1,39 @@
 import React from 'react';
-import NavBar from './components/Landing/NavBar';
-import Carousel from './components/Landing/Carousel';
-import PopularCities from './components/Landing/PopularCities'
-import { render } from "react-dom";
+import NavBar from './components/NavBar';
+import routes from './config/routes'
 
 
 
 import './App.css';
 
-function App() {
+function SignUpModal({ onCancel }) {
+  console.log('render signup')
   return (
-    <div className="App">
-     <NavBar />
-     <Carousel />
-     <PopularCities />
-    </div>
-  );
+    <div className="modal signup-modal" onClick={onCancel}></div>
+  )
+}
+
+class App extends React.Component {
+  state = {
+    isSignUpClicked: false
+  }
+
+  render() {
+    return (
+      <div className="App">
+      <NavBar onLogin={() => console.log('login')} onSignUp={() => {
+        console.log('signup')
+        this.setState({ isSignUpClicked: true })
+      }} />
+
+      { routes }
+
+      {/* ternary operator */}
+      { this.state.isSignUpClicked ? <SignUpModal onCancel={()=>{this.setState({isSignUpClicked: false})}} /> : undefined }
+
+      </div>
+    );
+  }
 }
 
 export default App;
