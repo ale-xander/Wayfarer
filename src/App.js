@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import SignUpModal from './components/modals/SignUpModal'
 import routes from './config/routes'
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 
 import './App.css';
 import LoginModal from './components/modals/LoginModal';
@@ -53,7 +54,7 @@ class App extends React.Component {
        undefined }
 
       { this.state.showLoginMoal ? 
-      <LoginModal onCancel={()=>{this.setState({showLoginMoal: false})}} setCurrentUser={this.setCurrentUser} /> :
+      <LoginModal onCancel={()=>{this.setState({showLoginMoal: false})}} setCurrentUser={this.setCurrentUser} history={this.props.history}/> :
        undefined }
 
       </div>
@@ -61,4 +62,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

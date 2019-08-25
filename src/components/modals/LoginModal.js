@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../constants';
 
-const handleSubmit = (evt, setCurrentUser) => {
+const handleSubmit = (evt, setCurrentUser, history) => {
     evt.preventDefault()
     console.log('submitting login')
     console.log(evt.target)
@@ -22,7 +22,9 @@ const handleSubmit = (evt, setCurrentUser) => {
       // set currentUser, get updated to the app level, so all children knows this user is logged in
       // server will set back the user id 
       setCurrentUser(res.data._id);
-    //   this.props.history.push('/profile');
+      console.log('history: ', history)
+      history.push(`/users/${res.data._id}`)
+
     })
     .catch(err => {
       console.log(err);
@@ -34,11 +36,11 @@ const handleSubmit = (evt, setCurrentUser) => {
 
 
 
-function LoginModal({ onCancel, setCurrentUser }) {
+function LoginModal({ onCancel, setCurrentUser, history}) {
     return (
         <div className="modal-background signup-modal" onClick={onCancel}>
             <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}>
-                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
+                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser, history)}}>
                     <h3>Login</h3>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
