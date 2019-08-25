@@ -11,7 +11,9 @@ const Router = ({cities}) => {
   return (
       <Switch>
         <Route exact path='/' component={ Home }/>
-        <Route exact path='/users/:id' component={PostContainer}/>
+        <Route path='/users/:id' component={PostContainer}/>
+
+        {/* it needs use render because it is passing props   */}
         <Route exact path='/cities' render={() => <CitiesContainer cities={cities} />}/>
       </Switch>
   )

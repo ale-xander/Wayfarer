@@ -21,7 +21,7 @@ const handleSubmit = (evt, setCurrentUser, history) => {
       console.log(res.data._id);
       // set currentUser, get updated to the app level, so all children knows this user is logged in
       // server will set back the user id 
-      setCurrentUser(res.data._id);
+      setCurrentUser(res.data);
     //   console.log('history: ', history)
     //   history.push(`/users/${res.data._id}`)
 

@@ -11,8 +11,8 @@ import LoginModal from './components/modals/LoginModal';
 
 class App extends React.Component {
   state = {
-    currentUser: localStorage.getItem('uid'),
-    // currentUser: null,
+    // if there is a user parse it otherwise null
+    currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
     showSignupMoal: false,
     showSignupModal: false,
     cities: []
@@ -33,12 +33,12 @@ class App extends React.Component {
   }
 
 
-  setCurrentUser = (userId) => {
-    this.setState({ currentUser: userId, showSignupModal:false });
-    localStorage.setItem('uid', userId);
+  setCurrentUser = (user) => {
+    this.setState({ currentUser: user, showSignupModal:false });
+    localStorage.setItem('user', JSON.stringify(user));
     console.log(this.state)
 
-    this.props.history.push(`/users/${userId}`)
+    this.props.history.push(`/users/${user._id}`)
   };
 
 
@@ -56,6 +56,7 @@ class App extends React.Component {
   render() {
     return (
 
+
       
       <div className="App">
         <NavBar 
@@ -67,6 +68,7 @@ class App extends React.Component {
             console.log('signup')
             this.setState({ showSignupModal: true })
           }} 
+          currentUser={this.state.currentUser}
         />
 
 
@@ -89,7 +91,7 @@ class App extends React.Component {
         {/* { router } */}
 
         {/* Router is component should be used as such */}
-      
+    
       {/* passing cities down to Router */}
         <Router cities={this.state.cities}/>
 
