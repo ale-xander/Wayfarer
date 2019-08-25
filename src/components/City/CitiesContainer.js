@@ -2,8 +2,11 @@ import React from 'react';
 
 import City from './City'
 
+// destructuring 
+function CitiesContainer({cities}) {
+    console.log(cities)
 
-function CitiesContainer() {
+
 
     return (
       <>

@@ -55,6 +55,8 @@ class App extends React.Component {
 
   render() {
     return (
+
+      
       <div className="App">
         <NavBar 
           onLogin={() => {
@@ -67,11 +69,7 @@ class App extends React.Component {
           }} 
         />
 
-        {/* Using component without < /> */}
-        {/* { router } */}
 
-        {/* Router is component should be used as such */}
-        <Router />
 
         {/* ternary operator */}
         { this.state.showSignupMoal ? 
@@ -81,6 +79,20 @@ class App extends React.Component {
         { this.state.showSignupModal ? 
         <LoginModal onCancel={()=>{this.setState({showSignupModal: false})}} setCurrentUser={this.setCurrentUser}/> :
         undefined }
+
+
+
+
+
+
+        {/* Using component without < /> */}
+        {/* { router } */}
+
+        {/* Router is component should be used as such */}
+      
+      {/* passing cities down to Router */}
+        <Router cities={this.state.cities}/>
+
 
       </div>
     );
