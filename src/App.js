@@ -3,6 +3,8 @@ import NavBar from './components/NavBar';
 import SignUpModal from './components/modals/SignUpModal'
 import Router from './config/routes'
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from './constants';
 
 import './App.css';
 import LoginModal from './components/modals/LoginModal';
@@ -12,7 +14,13 @@ class App extends React.Component {
     currentUser: localStorage.getItem('uid'),
     // currentUser: null,
     showSignupMoal: false,
-    showSignupModal: false
+    showSignupModal: false,
+    cities: []
+  }
+
+  // after App component mount 
+  componentDidMount() {
+    this.getAllCites()
   }
 
 
@@ -32,6 +40,17 @@ class App extends React.Component {
 
     this.props.history.push(`/users/${userId}`)
   };
+
+
+  getAllCites = () => {
+    axios.get(`${API_URL}/cities`, { withCredentials: true })
+    .then(res=> {
+      console.log(res.data)
+      this.setState({cities: res.data})
+      console.log(this.state)
+    })
+    .catch(err=>console.log(err))
+  }
 
 
   render() {
