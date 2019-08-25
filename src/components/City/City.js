@@ -1,12 +1,12 @@
 import React from 'react';
 
-
-const City = () => {
-    
+// two layers of destructuring 
+const City = ({city: {name}}) => {
+    console.log()
     return (
       <>
         {/* <Link to="/users/" ><button>Back to Profile</button></Link> */}
-        <h1> I am city</h1>
+        <h1> {name} </h1>
         {/* <Post /> */}
       </>
     )

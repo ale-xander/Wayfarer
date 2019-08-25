@@ -8,7 +8,9 @@ function CitiesContainer({cities}) {
     
       let showAllCities = cities.map((city) => {
         return (
-          <City city={city}/>
+          <City 
+          key={city._id}
+          city={city}/>
         );
       });
     
@@ -18,14 +20,5 @@ function CitiesContainer({cities}) {
         </ul>
       );
 }
-
-
-//     return (
-//       <>
-//         <h1> I am cities container</h1>
-//         <City />
-//       </>
-//     )
-// };
 
 export default CitiesContainer;
