@@ -11,7 +11,8 @@ class PostContainer extends Component {
     return (
       <>
         <Link to="/cities/" >See All Cities</Link>
-        <h1> I am post container</h1>
+        <h2> Welcome {this.props.currentUser.username} </h2>
+        <p> I am post </p>
         <Post />
 
       </>

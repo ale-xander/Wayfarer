@@ -11,7 +11,7 @@ import LoginModal from './components/modals/LoginModal';
 
 class App extends React.Component {
   state = {
-    // if there is a user parse it otherwise null
+    // if there is a user parse it otherwise null, turn string back to json object 
     currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
     showSignupMoal: false,
     showSignupModal: false,
@@ -35,6 +35,7 @@ class App extends React.Component {
 
   setCurrentUser = (user) => {
     this.setState({ currentUser: user, showSignupModal:false });
+    // user is an object, turn to a string to store
     localStorage.setItem('user', JSON.stringify(user));
     console.log(this.state)
 
@@ -92,8 +93,8 @@ class App extends React.Component {
 
         {/* Router is component should be used as such */}
     
-      {/* passing cities down to Router */}
-        <Router cities={this.state.cities}/>
+      {/* passing cities, currentUser down to Router */}
+        <Router cities={this.state.cities} currentUser={this.state.currentUser}/>
 
 
       </div>
