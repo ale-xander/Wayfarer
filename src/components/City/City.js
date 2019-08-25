@@ -7,7 +7,7 @@ const City = ({city: {name, image}}) => {
       <>
         {/* <Link to="/users/" ><button>Back to Profile</button></Link> */}
         <p> {name} </p>
-        <img / >
+        
         {/* <Post /> */}
       </>
     )
