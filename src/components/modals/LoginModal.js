@@ -1,15 +1,45 @@
 import React from 'react';
+import axios from 'axios';
+import { API_URL } from '../../constants';
 
-function LoginModal({ onCancel }) {
+const handleSubmit = (evt, setCurrentUser) => {
+    evt.preventDefault()
+    console.log('submitting login')
+    console.log(evt.target)
+
+    const user = {
+        email: evt.target.querySelector('#email').value,
+        password: evt.target.querySelector('#password').value,
+    }
+
+    console.log(user)
+
+    axios.post(`${API_URL}/auth/login`, user, { withCredentials: true }) // ask for authentications and authorization, tells server we have cookies
+    .then(res => {
+      console.log('logging user')
+      console.log(res);
+      console.log(res.data._id);
+      // set currentUser, get updated to the app level, so all children knows this user is logged in
+      // server will set back the user id 
+      setCurrentUser(res.data._id);
+    //   this.props.history.push('/profile');
+    })
+    .catch(err => {
+      console.log(err);
+    //   this.setState({ error: err.response.data.message });
+    });
+
+}
+
+
+
+
+function LoginModal({ onCancel, setCurrentUser }) {
     return (
         <div className="modal-background signup-modal" onClick={onCancel}>
-            <div className="modal-window" onClick={(e) => {e.stopPropagation()}}>
-                <form className="modal-form" onSubmit={(e) => {console.log('submit'); e.preventDefault();}}>
-                    <h3>Sign up</h3>
-                    <div className="input-group">
-                        <label htmlFor="username">Username</label>
-                        <input name="username" id="username"></input>
-                    </div>
+            <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}>
+                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
+                    <h3>Login</h3>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input name="email" id="email" type="email"></input>
@@ -28,4 +58,4 @@ function LoginModal({ onCancel }) {
     )
 }
 
-export default SignUpModal
+export default LoginModal
