@@ -26,9 +26,11 @@ class App extends React.Component {
 
 
   setCurrentUser = (userId) => {
-    this.setState({ currentUser: userId });
+    this.setState({ currentUser: userId, showLoginMoal:false });
     localStorage.setItem('uid', userId);
     console.log(this.state)
+
+    this.props.history.push(`/users/${userId}`)
   };
 
 

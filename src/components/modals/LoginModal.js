@@ -23,7 +23,7 @@ const handleSubmit = (evt, setCurrentUser, history) => {
       // server will set back the user id 
       setCurrentUser(res.data._id);
       console.log('history: ', history)
-      history.push(`/users/${res.data._id}`)
+    //   history.push(`/users/${res.data._id}`)
 
     })
     .catch(err => {
