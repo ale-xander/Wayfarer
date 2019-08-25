@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './components/NavBar';
 import SignUpModal from './components/modals/SignUpModal'
-import routes from './config/routes'
+import Router from './config/routes'
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 
 import './App.css';
@@ -12,7 +12,7 @@ class App extends React.Component {
     currentUser: localStorage.getItem('uid'),
     // currentUser: null,
     showSignupMoal: false,
-    showLoginMoal: false
+    showSignupModal: false
   }
 
 
@@ -20,13 +20,13 @@ class App extends React.Component {
     console.log('clicked: ', this)
     this.setState({
       showSignupMoal: false,
-      showLoginMoal: true
+      showSignupModal: true
     })
   }
 
 
   setCurrentUser = (userId) => {
-    this.setState({ currentUser: userId, showLoginMoal:false });
+    this.setState({ currentUser: userId, showSignupModal:false });
     localStorage.setItem('uid', userId);
     console.log(this.state)
 
@@ -37,27 +37,31 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-      <NavBar 
-        onLogin={() => {
-          console.log('login')
-          this.setState({ showLoginMoal: true })
-        }} 
-        onSignUp={() => {
-          console.log('signup')
-          this.setState({ showSignupMoal: true })
-        }} 
-      />
+        <NavBar 
+          onLogin={() => {
+            console.log('login')
+            this.setState({ showSignupModal: true })
+          }} 
+          onSignUp={() => {
+            console.log('signup')
+            this.setState({ showSignupModal: true })
+          }} 
+        />
 
-      { routes }
+        {/* Using component without < /> */}
+        {/* { router } */}
 
-      {/* ternary operator */}
-      { this.state.showSignupMoal ? 
-      <SignUpModal onCancel={()=>{this.setState({showSignupMoal: false})}} newUserRegistered={this.newUserRegistered} /> ://
-       undefined }
+        {/* Router is component should be used as such */}
+        <Router />
 
-      { this.state.showLoginMoal ? 
-      <LoginModal onCancel={()=>{this.setState({showLoginMoal: false})}} setCurrentUser={this.setCurrentUser} history={this.props.history}/> :
-       undefined }
+        {/* ternary operator */}
+        { this.state.showSignupMoal ? 
+        <SignUpModal onCancel={()=>{this.setState({showSignupMoal: false})}} newUserRegistered={this.newUserRegistered} /> ://
+        undefined }
+
+        { this.state.showSignupModal ? 
+        <LoginModal onCancel={()=>{this.setState({showSignupModal: false})}} setCurrentUser={this.setCurrentUser}/> :
+        undefined }
 
       </div>
     );

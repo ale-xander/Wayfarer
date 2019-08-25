@@ -1,12 +1,19 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, } from 'react-router-dom'
 import Home from '../components/Home'
 import PostContainer from '../components/Post/PostContainer';
-// import TodosContainer from '../containers/TodosContainer'
+import CitiesContainer from '../components/City/CitiesContainer';
 
-export default (
+const Router = () => {
+
+  return (
       <Switch>
         <Route exact path='/' component={ Home }/>
-        <Route exact path='/users/:id' component={ PostContainer }/>
+        <Route exact path='/users/:id' component={PostContainer}/>
+        <Route exact path='/cities' component={CitiesContainer}/>
       </Switch>
-)
+  )
+}
+
+
+export default Router

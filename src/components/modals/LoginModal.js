@@ -22,7 +22,7 @@ const handleSubmit = (evt, setCurrentUser, history) => {
       // set currentUser, get updated to the app level, so all children knows this user is logged in
       // server will set back the user id 
       setCurrentUser(res.data._id);
-      console.log('history: ', history)
+    //   console.log('history: ', history)
     //   history.push(`/users/${res.data._id}`)
 
     })
@@ -40,7 +40,7 @@ function LoginModal({ onCancel, setCurrentUser, history}) {
     return (
         <div className="modal-background signup-modal" onClick={onCancel}>
             <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}>
-                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser, history)}}>
+                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
                     <h3>Login</h3>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
