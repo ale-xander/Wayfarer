@@ -4,6 +4,7 @@ import React from 'react';
 
 const Post = ({post:{title, content, image}}) => {
     return (
+
         // <div>
         //     <h4>{title}</h4>
         //     <p>{content}</p>
@@ -17,6 +18,7 @@ const Post = ({post:{title, content, image}}) => {
                 <button type="submit" className="post-delete-button post-update-buttons">Delete</button>
                 
             </div>
+
         </div>
     )
 }
