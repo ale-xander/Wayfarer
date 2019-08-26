@@ -71,9 +71,6 @@ class App extends React.Component {
 
   render() {
     return (
-
-
-      
       <div className="App">
         <NavBar 
           onLogin={() => {
@@ -86,8 +83,6 @@ class App extends React.Component {
           }} 
           currentUser={this.state.currentUser}
         />
-
-
 
         {/* ternary operator */}
         { this.state.showSignupMoal ? 
@@ -106,7 +101,6 @@ class App extends React.Component {
         {/* { router } */}
 
         {/* Router is component should be used as such */}
-    
         {/* passing cities, currentUser down to Router */}
         <Router 
           cities={this.state.cities} 

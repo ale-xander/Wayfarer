@@ -3,11 +3,6 @@ import axios from 'axios';
 import { API_URL } from '../../constants';
 
 
-
-
-
-
-
 function AddPostModal({ onCancel, addPost }) {
     return (
         <div className="modal-background signup-modal" onClick={onCancel}>
