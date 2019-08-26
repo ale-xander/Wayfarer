@@ -343,3 +343,13 @@ h3 {
 .clearfix {
   overflow: auto;
 }
+
+/* sidebar */
+show-highlight {
+  background: rgb(190, 218, 140)
+ }
+ 
+ .city-sidebar-list {
+  margin: 5em;
+  list-style-type: none
+ }
