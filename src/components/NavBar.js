@@ -8,7 +8,6 @@ const NavBar = (props) => {
   if (props.currentUser) {
     return (
       <nav className="main-nav-bar">
-
         <Link to="/" className="brand-link">
           <h1 className="brand-header">Wayfarer</h1>
         </Link>
@@ -18,9 +17,7 @@ const NavBar = (props) => {
             Profile
         </Link>
 
-        <Link className="nav-btn" to={`/api/v1/auth/logout`} >
-            Logout
-        </Link>
+        <button className="nav-btn" style={{cursor: 'pointer'}} onClick={props.handleLogout}>Logout</button>
 
       </nav>
     );

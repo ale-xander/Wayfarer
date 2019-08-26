@@ -23,6 +23,21 @@ class App extends React.Component {
    
   }
 
+  handleLogout() {
+    console.log('logging out')
+
+    // // kill the session in server
+    // axios.post(`${API_URL}/auth/logout`, { withCredentials: true })
+    // .then(res => {
+    //   console.log(res);
+    //   this.setState({ currentUser: null });
+    //   // redirect to login page. we get history from react-router 
+    //   this.props.history.push('/login');
+    // })
+    // .catch(err => console.log(err));
+
+  }
+
   // cityDetail request modal, App sents 
   addPost = (newPost) => {
     console.log('addPost: ', newPost)
@@ -84,6 +99,7 @@ class App extends React.Component {
             this.setState({ showSignupModal: true })
           }} 
           currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
         />
 
         
@@ -99,7 +115,7 @@ class App extends React.Component {
         <AddPostModal onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
         undefined }
 
-          
+
         {/* Router is component */}
         {/* 
         passing to router for:
