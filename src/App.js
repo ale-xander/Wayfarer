@@ -12,8 +12,6 @@ import AddPostModal from './components/modals/AddPostModal';
 
 class App extends React.Component {
   state = {
-    // if there is a user parse it otherwise null, turn string back to json object 
-    // currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
     currentUser: null,
     showSignupModal: false,
     showLoginModal: false,
@@ -22,6 +20,7 @@ class App extends React.Component {
     cities: [],
   }
 
+  // cityDetail request modal, App sents 
   addPost = (newPost) => {
     console.log('addPost: ', newPost)
     this.setState({
@@ -38,7 +37,7 @@ class App extends React.Component {
     this.getAllCites()
   }
 
-
+ //prompt user to login after singnup
   newUserRegistered = () => {
     console.log('clicked: ', this)
     this.setState({
@@ -47,9 +46,9 @@ class App extends React.Component {
     })
   }
 
-
+  // set currentUser after login
   setCurrentUser = (user) => {
-    this.setState({ currentUser: user, showSignupModal:false });
+    this.setState({ currentUser: user, showLoginModal:false });
     // user is an object, turn to a string to store
     localStorage.setItem('user', JSON.stringify(user));
     console.log(this.state)
@@ -75,7 +74,7 @@ class App extends React.Component {
         <NavBar 
           onLogin={() => {
             console.log('login')
-            this.setState({ showSignupModal: true })
+            this.setState({ showLoginModal: true })
           }} 
           onSignUp={() => {
             console.log('signup')
@@ -84,24 +83,27 @@ class App extends React.Component {
           currentUser={this.state.currentUser}
         />
 
-        {/* ternary operator */}
-        { this.state.showSignupMoal ? 
-        <SignUpModal onCancel={()=>{this.setState({showSignupMoal: false})}} newUserRegistered={this.newUserRegistered} /> ://
+        
+        { this.state.showSignupModal ? 
+        <SignUpModal onCancel={()=>{this.setState({showSignupModal: false})}} newUserRegistered={this.newUserRegistered} /> ://
         undefined }
 
-        { this.state.showSignupModal ? 
-        <LoginModal onCancel={()=>{this.setState({showSignupModal: false})}} setCurrentUser={this.setCurrentUser}/> :
+        { this.state.showLoginModal ? 
+        <LoginModal onCancel={()=>{this.setState({showLoginModal: false})}} setCurrentUser={this.setCurrentUser}/> :
         undefined }
 
         { this.state.showAddPostModal ? 
         <AddPostModal onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
         undefined }
 
-        {/* Using component without < /> */}
-        {/* { router } */}
 
-        {/* Router is component should be used as such */}
-        {/* passing cities, currentUser down to Router */}
+        {/* Router is component */}
+        {/* 
+        passing to router for:
+         cities -- cityContainer
+        currentUser -- profileContainer
+        onNewPost -- cityDetail
+        */}
         <Router 
           cities={this.state.cities} 
           currentUser={this.state.currentUser} 
