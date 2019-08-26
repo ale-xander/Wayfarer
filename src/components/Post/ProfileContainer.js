@@ -4,6 +4,8 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import { API_URL } from '../../constants';
 
+
+// onloin -> user profile page showing all posts
 class ProfileContainer extends Component {
     state = {
       posts: []
@@ -31,6 +33,8 @@ class ProfileContainer extends Component {
       <div>
         <Link to="/cities/" >See All Cities</Link>
         <h2> Welcome {this.props.currentUser.username} </h2>
+
+        {/* render */}
         <PostList posts={this.state.posts}/>
 
       </div>
