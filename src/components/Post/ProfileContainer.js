@@ -30,12 +30,12 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Link to="/cities/" >See All Cities</Link>
-        <h2> Welcome {this.props.currentUser.username} </h2>
+      <div className="profile-post-list">
+        <Link to="/cities/" className="all-cities-link">See All Cities</Link>
+        <h2> Welcome {this.props.currentUser.username.toUpperCase()} </h2>
 
         {/* render */}
-        <PostList posts={this.state.posts}/>
+        <PostList  posts={this.state.posts}/>
 
       </div>
     )
