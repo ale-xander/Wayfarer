@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Carousel extends Component {
     render() {
         return (
-            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" data-interval="false">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                     <img src="https://image.shutterstock.com/image-photo/panoramic-london-skyline-iconic-symbol-260nw-783218599.jpg" className="d-block w-100" alt="..." />

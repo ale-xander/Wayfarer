@@ -1,6 +1,12 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+/* .App {
+  text-align: center;
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -50,3 +56,131 @@
   padding: 1.5rem;
   border: 1px solid black;
 }
+
+.main-nav-bar {
+  position: relative;
+  height: 80px;
+  padding: 10px 20px;
+}
+
+.brand-link {
+  color: #aaa
+}
+
+.brand-link:hover {
+  text-decoration: none;
+  color: #6677ee
+}
+
+.brand-header {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 60px;
+}
+
+.nav-links {
+  height: 60px;
+  float: right;
+  width: 50%;
+}
+
+.nav-links > li {
+  list-style: none;
+}
+
+.nav-btn {
+  appearance: none;
+  border: none;
+  display: block;
+  padding: 0 10px;
+  line-height: 60px;
+  float: right
+}
+
+.nav-btn:hover {
+  color: #6677ee;
+}
+
+.modal-background {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.3);
+  z-index: 1000 
+}
+
+.modal-window {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -300px;
+  width: 600px;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 5px 10px 5px rgba(0,0,0,0.2);
+  background-color: #fff;
+}
+
+.input-group {
+  position: relative;
+  margin: 0 0 20px 0;
+}
+
+.input-group > label {
+  margin: 0  
+}
+
+.input-group > input {
+  display: block;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.modal-form-footer {
+  position: relative;
+  height: 40px;
+}
+
+.modal-btn {
+  float: right;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 0;
+  line-height: 20px;
+}
+
+.modal-btn:hover {
+  color: #6677ee;
+}
+
+.city-banner {
+  width: 50%
+}
+
+
+.city-detail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "sidebar main"
+}
+
+.city-sidebar {
+  grid-area: sidebar;
+}
+
+.city-content {
+  grid-area: main;
+}
+
+.city-info {
+  overflow: hidden;
+}
+
+
