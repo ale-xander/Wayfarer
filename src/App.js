@@ -12,12 +12,15 @@ import AddPostModal from './components/modals/AddPostModal';
 
 class App extends React.Component {
   state = {
+    // App do not know about posts
     currentUser: null,
     showSignupModal: false,
     showLoginModal: false,
+    cities: [],
+    // showAddPostModal && modalCallBack
     showAddPostModal: false,
     modalCallback: null,
-    cities: [],
+   
   }
 
   // cityDetail request modal, App sents 
@@ -96,7 +99,7 @@ class App extends React.Component {
         <AddPostModal onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
         undefined }
 
-
+          
         {/* Router is component */}
         {/* 
         passing to router for:
@@ -107,6 +110,8 @@ class App extends React.Component {
         <Router 
           cities={this.state.cities} 
           currentUser={this.state.currentUser} 
+          // pass onNewPost down to cityDetail, cityDetail will let App know to render AddPostModal
+          // onNewPost -> show AddPostModal
           onNewPost={(handleSubmit) => {
               this.setState({
                 showAddPostModal: true,
