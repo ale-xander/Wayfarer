@@ -255,19 +255,27 @@ h3 {
 }
 
 .post-update-buttons {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  margin: 0 0.3em;
+  /* display: inline-flex;
+  flex-direction: row-reverse; */
+  
+  margin: 0 0.3em 0 2em;
   padding: .5em;
   background-color: var(--yellow);
   border-radius: 0.2em;
   border: none;
-  font-size: 0.5em;
+  font-size: 1em;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .post-title {
-  background: var(--mint-cream);
-  color: var(--dark-green);
+  background: var(--dark-green);
+  color: var(--ash-grey);
   font-size: 1.5em;
 }
 
@@ -309,6 +317,10 @@ h3 {
 .post-add-button {
   padding: .5em;
   background: var(--yellow);
+}
+
+.city-content {
+  padding: 2rem 0 0 2rem;
 }
 
 /* Profile All Posts */
