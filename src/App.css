@@ -184,3 +184,15 @@
 }
 
 
+/* .city-sidebar-list > li {
+  background: blue
+} */
+
+.show-highlight {
+  background: rgb(190, 218, 140)
+}
+
+.city-sidebar-list {
+  margin: 5em;
+  list-style-type: none
+}

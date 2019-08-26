@@ -101,7 +101,7 @@ class CityDetail extends Component {
                     <PostList posts={this.state.posts} />
                 </section>
           
-                <CitiesContainer className="city-sidebar" cities={this.props.cities}/>
+                <CitiesContainer className="city-sidebar" cities={this.props.cities} activeCityId={this.state.id}/>
 
             </div>
         )
