@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+:root {
+  /* colors  */
+ --dark-green: #003300;
+ --yellow: #efcb68;
+ --alabaster: #e1efe6;
+ --ash-grey: #aeb7b3;
+ --black: #000000;
+ --yellow: #efcb68;}
 /* .App {
   text-align: center;
 } */
@@ -183,4 +191,29 @@
   overflow: hidden;
 }
 
+.selectedCity{
+  background: var(--yellow);
+  border-radius: 5em;
+  padding: .9em;
+  border: 0px solid;
+  width: 10em;
+  margin: .3em;
+  font-size: 1.5em;
+}
 
+.city-container {
+  background: var(--dark-green);
+  padding: .8em;
+  max-width: 18em;
+  border-radius: 4px;
+}
+.inactiveCity{
+  background: var(--ash-grey);
+  border-radius: 5em;
+  padding: .8em;
+  border: 0px solid;
+  font-size: 1.5em;
+  width: 10em;
+  margin: .3em;
+  color: #2b2b2b;
+}
