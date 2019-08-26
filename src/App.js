@@ -23,18 +23,18 @@ class App extends React.Component {
    
   }
 
-  handleLogout() {
+  handleLogout = () => {
     console.log('logging out')
 
-    // // kill the session in server
-    // axios.post(`${API_URL}/auth/logout`, { withCredentials: true })
-    // .then(res => {
-    //   console.log(res);
-    //   this.setState({ currentUser: null });
-    //   // redirect to login page. we get history from react-router 
-    //   this.props.history.push('/login');
-    // })
-    // .catch(err => console.log(err));
+    // kill the session in server
+    axios.post(`${API_URL}/auth/logout`, { withCredentials: true })
+    .then(res => {
+      console.log(res);
+      this.setState({ currentUser: null });
+      // redirect to login page. we get history from react-router 
+      this.props.history.push('/');
+    })
+    .catch(err => console.log(err));
 
   }
 
