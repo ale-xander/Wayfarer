@@ -12,12 +12,30 @@ import AddPostModal from './components/modals/AddPostModal';
 
 class App extends React.Component {
   state = {
+    // App do not know about posts
     currentUser: null,
     showSignupModal: false,
     showLoginModal: false,
+    cities: [],
+    // showAddPostModal && modalCallBack
     showAddPostModal: false,
     modalCallback: null,
-    cities: [],
+   
+  }
+
+  handleLogout = () => {
+    console.log('logging out')
+
+    // kill the session in server
+    axios.post(`${API_URL}/auth/logout`, { withCredentials: true })
+    .then(res => {
+      console.log(res);
+      this.setState({ currentUser: null });
+      // redirect to login page. we get history from react-router 
+      this.props.history.push('/');
+    })
+    .catch(err => console.log(err));
+
   }
 
   // cityDetail request modal, App sents 
@@ -81,6 +99,7 @@ class App extends React.Component {
             this.setState({ showSignupModal: true })
           }} 
           currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
         />
 
         
@@ -107,6 +126,8 @@ class App extends React.Component {
         <Router 
           cities={this.state.cities} 
           currentUser={this.state.currentUser} 
+          // pass onNewPost down to cityDetail, cityDetail will let App know to render AddPostModal
+          // onNewPost -> show AddPostModal
           onNewPost={(handleSubmit) => {
               this.setState({
                 showAddPostModal: true,

@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../constants';
 
-
+// cityDetail request modal from App, App render modal, 
+// AddPostModal rendered by App, onSubmit -> call addPost (function passed down by App) with newPost
 function AddPostModal({ onCancel, addPost }) {
     return (
         <div className="modal-background signup-modal" onClick={onCancel}>
