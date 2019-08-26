@@ -4,6 +4,30 @@
   padding: 0;
 }
 
+:root {
+  /* colors  */
+ --dark-green: #003300;
+ --yellow: #efcb68;
+ --light-text: #e1efe6;
+ --light-background: #aeb7b3;
+ --dark-text: #525754;
+ --black: #000000;
+
+  /* spacing  */
+ --padding-xs: 5px;
+ --padding-sm: 10px;
+ --padding: 15px;
+ --padding-lg: 30px;
+ --padding-xl: 60px;
+
+ --margin-xs: 5px;
+ --margin-sm: 10px;
+ --margin: 15px;
+ --margin-lg: 30px;
+ --margin-xl: 60px;
+
+}
+
 /* .App {
   text-align: center;
 } */
@@ -61,6 +85,7 @@
   position: relative;
   height: 80px;
   padding: 10px 20px;
+  
 }
 
 .brand-link {
