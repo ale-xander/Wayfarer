@@ -14,6 +14,10 @@ class CityDetail extends Component {
         posts: []
     }
 
+    showAddPostModal() {
+
+    }
+
     // grab the city detail from database
     getDetail = (id) => {
         console.log('id: ', id)
@@ -45,6 +49,7 @@ class CityDetail extends Component {
             .catch(err=>console.log(err))
     }
 
+    // update everytime new props -- new city id
     componentWillReceiveProps(newProps) {
         if (newProps.match && newProps.match.params.id && newProps.match.params.id !== this.state.id) {
             console.log('new props')
@@ -63,6 +68,7 @@ class CityDetail extends Component {
                     <div className="city-info">
                         <h2>{this.state.name}</h2>
                         <img src={this.state.image} alt={this.state.name} className="city-banner"/>
+                        <button onClick={ () => this.props.onNewPost(this.state.id) }>Add Post</button>
                         <p>{this.state.description}</p>
                     </div>
                     <PostList posts={this.state.posts} />

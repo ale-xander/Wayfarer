@@ -8,15 +8,25 @@ import { API_URL } from './constants';
 
 import './App.css';
 import LoginModal from './components/modals/LoginModal';
+import AddPostModal from './components/modals/AddPostModal';
 
 class App extends React.Component {
   state = {
     // if there is a user parse it otherwise null, turn string back to json object 
     // currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
     currentUser: null,
-    showSignupMoal: false,
     showSignupModal: false,
+    showLoginModal: false,
+    showAddPostModal: false,
+    currentCityId: null,
     cities: []
+  }
+
+  addPost = (newPost) => {
+    console.log(newPost)
+    this.setState({
+      showAddPostModal: false,
+    })
   }
 
   // after App component mount 
@@ -28,8 +38,8 @@ class App extends React.Component {
   newUserRegistered = () => {
     console.log('clicked: ', this)
     this.setState({
-      showSignupMoal: false,
-      showSignupModal: true
+      showSignupModal: false,
+      showLoginModal: true
     })
   }
 
@@ -46,12 +56,12 @@ class App extends React.Component {
   // grab all cities from database
   getAllCites = () => {
     axios.get(`${API_URL}/cities`, { withCredentials: true })
-    .then(res=> {
-      console.log(res.data)
-      this.setState({cities: res.data})
-      console.log(this.state)
-    })
-    .catch(err=>console.log(err))
+      .then(res=> {
+        console.log(res.data)
+        this.setState({cities: res.data})
+        console.log(this.state)
+      })
+      .catch(err=>console.log(err))
   }
 
 
@@ -84,10 +94,9 @@ class App extends React.Component {
         <LoginModal onCancel={()=>{this.setState({showSignupModal: false})}} setCurrentUser={this.setCurrentUser}/> :
         undefined }
 
-
-
-
-
+        { this.state.showAddPostModal ? 
+        <AddPostModal cityId={this.state.currentCityId} onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
+        undefined }
 
         {/* Using component without < /> */}
         {/* { router } */}
@@ -95,7 +104,16 @@ class App extends React.Component {
         {/* Router is component should be used as such */}
     
       {/* passing cities, currentUser down to Router */}
-        <Router cities={this.state.cities} currentUser={this.state.currentUser}/>
+        <Router 
+        cities={this.state.cities} 
+        currentUser={this.state.currentUser} 
+        onNewPost={(cityId) => {
+            console.log('new post')
+            this.setState({
+              currentCityId: cityId,
+              showAddPostModal: true
+            })
+          }} />
 
 
       </div>

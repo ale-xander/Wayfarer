@@ -7,7 +7,7 @@ import CityDetail from '../components/City/CityDetail';
 
 
 // destructuring 
-const Router = ({cities, currentUser, history }) => {
+const Router = ({cities, currentUser, history, onNewPost }) => {
 
   return (
       <Switch>
@@ -24,7 +24,7 @@ const Router = ({cities, currentUser, history }) => {
         {/* it needs use render because it is passing props   */}
         <Route exact path='/cities' render={() => <CitiesContainer cities={cities} />}/>
         {/* router listens to url change, this funtion passed to render, match property has info about params, pass it down  */}
-        <Route exact path='/cities/:id' render={({ match }) => <CityDetail match={match} cities={cities} />}/>
+        <Route exact path='/cities/:id' render={({ match }) => <CityDetail match={match} cities={cities} onNewPost={onNewPost}/>}/>
       </Switch>
   )
 }
