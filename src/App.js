@@ -1,21 +1,24 @@
-import React from 'react';
-import NavBar from './components/Landing/NavBar';
-import Carousel from './components/Landing/Carousel';
+import React from 'react'
+import NavBar from './components/Landing/NavBar'
+import Carousel from './components/Landing/Carousel'
 import PopularCities from './components/Landing/PopularCities'
-import { render } from "react-dom";
+import Register from './components/Landing/Register'
+import { render } from 'react-dom'
 
 
 
-import './App.css';
+import './App.css'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-     <NavBar />
-     <Carousel />
-     <PopularCities />
+    <div className='App'>
+      <NavBar />
+      <Carousel />
+      <PopularCities />
+      <Register />
+     
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
