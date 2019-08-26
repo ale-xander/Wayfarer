@@ -6,13 +6,13 @@ class Carousel extends Component {
             <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" data-interval="false">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                    <img src="https://image.shutterstock.com/image-photo/panoramic-london-skyline-iconic-symbol-260nw-783218599.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://img.andrewprokos.com/TORONTO-PANORAMIC-SKYLINE-DUSK-1200PX.jpg" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="https://image.shutterstock.com/image-photo/landscape-panoramic-view-on-eiffel-260nw-705219370.jpg" className="d-block w-100" alt="..." />
+                    <img src="http://panoramicvisions.com/images/banner-img11.jpg" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaQWmtYmiktGxusJ-dNtkmmSl9gr-rmNLjflmKY9W-8DOeOG3nJA" className="d-block w-100" alt="..." />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTa0XdDB0mfhQHhPwmlXq9-NrXfI8RzDbbZoEgXVUaibpuaLr" className="d-block w-100" alt="..." />
                 </div>
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
