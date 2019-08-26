@@ -4,6 +4,17 @@
   padding: 0;
 }
 
+:root {
+  /* colors  */
+ --dark-green: #003300;
+ --yellow: #efcb68;
+ --alabaster: #e1efe6;
+ --ash-grey: #aeb7b3;
+ --black: #000000;
+ --yellow: #efcb68;
+ --mint-cream: #F5FFFA;
+ --white-smoke: #F5F5F5;
+}
 /* .App {
   text-align: center;
 } */
@@ -183,4 +194,76 @@
   overflow: hidden;
 }
 
+/* Post detail card */
 
+.post-card {
+  margin: 1em 2em 1em 0;
+  background: var(--ash-grey);
+}
+
+.post-update-buttons {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  margin: 0 0.3em;
+  padding: .5em;
+  background-color: var(--yellow);
+  border-radius: 0.2em;
+  border: none;
+  font-size: 0.5em;
+}
+
+.post-title {
+  background: var(--mint-cream);
+  color: var(--dark-green);
+  font-size: 1.5em;
+}
+
+.post-content {
+  padding: 1em;
+  background: var(--white-smoke);
+}
+
+.city-profile {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 2em; */
+}
+
+.city-banner {
+  margin-right: 2em;
+  width: 20em;
+  height: 15em;
+}
+
+.city-name {
+  font-size: 3em;
+}
+
+.city-description {
+  padding-right: 5em;
+}
+
+.post-interaction {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 2em 0 0;
+}
+
+.post-interaction > h2 {
+  font-size: 1.5em;
+}
+
+.post-add-button {
+  padding: .5em;
+  background: var(--yellow);
+}
+
+/* Profile All Posts */
+
+.profile-post-list {
+  margin: 2em;
+}
+
+/* .all-cities-link {
+  
+} */

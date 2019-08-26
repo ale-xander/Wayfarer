@@ -92,12 +92,30 @@ class CityDetail extends Component {
             <div className='city-detail-wrapper'>
                 <section className="city-content">
                     <div className="city-info">
-                        <h2>{this.state.name}</h2>
-                        <img src={this.state.image} alt={this.state.name} className="city-banner"/>
+                        <div className="city-profile">
+                            <div>
+                                <h2 className="city-name">
+                                    {this.state.name}
+                                </h2>
+                                <p className="city-description">                    {this.state.description}
+                                </p>
+                            </div>
+                            <img src={this.state.image} alt={this.state.name} className="city-banner"/>
+                        </div>
+                        {/* <h2 className="city-name city-profile">{this.state.name}</h2>
+                        <img src={this.state.image} alt={this.state.name} className="city-banner city-profile"/> */}
                         {/* when user press create post btn, call onNewPost passed by router (App), passing a function to handleSubmit */}
-                        <button onClick={ () => this.props.onNewPost(this.handleSubmit) }>Add Post</button>
-                        <p>{this.state.description}</p>
+                        {/* <div className="city-description">
+                            <p>{this.state.description}</p>
+                        </div> */}
+                        {/* <p>{this.state.description}</p> */}
+                        <div className="post-interaction">
+                            <h2>Posts</h2>
+                            <button className="post-add-button" onClick={ () => this.props.onNewPost(this.handleSubmit) }>Add Post</button>
+                        </div>
+                        {/* <button onClick={ () => this.props.onNewPost(this.handleSubmit) }>Add Post</button> */}
                     </div>
+                    {/* <h2>Posts</h2> */}
                     <PostList posts={this.state.posts} />
                 </section>
           
