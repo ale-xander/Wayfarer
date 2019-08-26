@@ -31,12 +31,14 @@ class CityDetail extends Component {
             .catch(err => console.log(err))
     }
 
+    // handle adding new post, newPost from App passed by AddPostModal
+    // make api ajax call, save new post to its own state
     handleSubmit = (newPost) => {
         console.log('submitting new post')
         newPost.cityId = this.state.id
         console.log(newPost)
     
-        axios.post(`${API_URL}/posts`, newPost, { withCredentials: true }) // ask for authentications and authorization, tells server we have cookies
+        axios.post(`${API_URL}/posts`, newPost, { withCredentials: true }) 
             .then(res => {
                 console.log('creating post')
                 console.log(res);
@@ -63,7 +65,7 @@ class CityDetail extends Component {
             .catch(err=>console.log(err))
     }
 
-    // update everytime new props -- new city id
+    // update everytime new props from url, listen to the url -- new city id, update the view 
     componentWillReceiveProps(newProps) {
         console.log('component: ', newProps)
         if (newProps.match && newProps.match.params.id && newProps.match.params.id !== this.state.id) {
@@ -76,6 +78,7 @@ class CityDetail extends Component {
         console.log('city detail: ', newProps)
     }
 
+    //render the first time 
     componentDidMount() {
         if (this.props.match && this.props.match.params.id && this.props.match.params.id !== this.state.id) {
             this.getPosts(this.props.match.params.id)
@@ -91,6 +94,7 @@ class CityDetail extends Component {
                     <div className="city-info">
                         <h2>{this.state.name}</h2>
                         <img src={this.state.image} alt={this.state.name} className="city-banner"/>
+                        {/* when user press create post btn, call onNewPost passed by router (App), passing a function to handleSubmit */}
                         <button onClick={ () => this.props.onNewPost(this.handleSubmit) }>Add Post</button>
                         <p>{this.state.description}</p>
                     </div>
