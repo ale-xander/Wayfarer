@@ -12,7 +12,8 @@ import LoginModal from './components/modals/LoginModal';
 class App extends React.Component {
   state = {
     // if there is a user parse it otherwise null, turn string back to json object 
-    currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+    // currentUser: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+    currentUser: null,
     showSignupMoal: false,
     showSignupModal: false,
     cities: []
@@ -42,7 +43,7 @@ class App extends React.Component {
     this.props.history.push(`/users/${user._id}`)
   };
 
-
+  // grab all cities from database
   getAllCites = () => {
     axios.get(`${API_URL}/cities`, { withCredentials: true })
     .then(res=> {
