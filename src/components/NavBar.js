@@ -26,7 +26,7 @@ const NavBar = (props) => {
     return (
       <nav className="main-nav-bar">
         <Link to="/" className="brand-link">
-          <h1 className="brand-header">Wayfarer</h1>
+          <h1 className="brand-header">WayFarer</h1>
         </Link>
         <button className="nav-btn" onClick={props.onSignUp}>Sign up</button>
         <button className="nav-btn" onClick={props.onLogin}>Login</button>

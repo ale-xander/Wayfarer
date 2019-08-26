@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+<<<<<<< HEAD
 :root {
   /* colors  */
  --dark-green: #003300;
@@ -15,6 +16,32 @@
  --mint-cream: #F5FFFA;
  --white-smoke: #F5F5F5;
 }
+=======
+/* Color Variables */
+:root {
+ --dark-green: #003300;
+ --yellow: #efcb68;
+ --light-text: #e1efe6;
+ --light-background: #aeb7b3;
+ --dark-text: #525754;
+ --black: #000000;
+
+  /* spacing  */
+ --padding-xs: 5px;
+ --padding-sm: 10px;
+ --padding: 15px;
+ --padding-lg: 30px;
+ --padding-xl: 60px;
+
+ --margin-xs: 5px;
+ --margin-sm: 10px;
+ --margin: 15px;
+ --margin-lg: 30px;
+ --margin-xl: 60px;
+
+}
+
+>>>>>>> origin/styling
 /* .App {
   text-align: center;
 } */
@@ -48,11 +75,19 @@
     transform: rotate(360deg);
   }
 }
+
+/* .App {
+  background-color: var(--dark-green);
+} */
+
+/* popular cities */
 .container  {
   display: grid;
-  grid-template-areas:  "left center right";
+  grid-template-areas:  " . left center right .";
   text-align: left;
-  margin: 1rem;
+  /* background-color: var(--light-background); */
+  /* margin: 3rem; */
+
 }
 .city1  {
   grid-area: left;
@@ -65,13 +100,21 @@
 }
 .city-style {
   padding: 1.5rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+h1 {
+  
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .main-nav-bar {
   position: relative;
   height: 80px;
   padding: 10px 20px;
+  background: var(--dark-green);
+
 }
 
 .brand-link {
@@ -85,16 +128,25 @@
 
 .brand-header {
   display: inline-block;
-  font-size: 2em;
-  font-weight: normal;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 60px;
+  font-size: 2.5em;
+  font-weight: 600;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Dancing Script', cursive;
+  line-height: 3rem;
+  color: var(--yellow);
+  margin-top: 0.2rem;
 }
 
 .nav-links {
   height: 60px;
   float: right;
   width: 50%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .nav-links > li {
@@ -105,14 +157,29 @@
   appearance: none;
   border: none;
   display: block;
-  padding: 0 10px;
-  line-height: 60px;
-  float: right
+  padding: 0 1rem;
+  line-height: 2.5em;
+  float: right;
+  margin-right: 1em;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  border-radius: 0.5em;
+  padding: 0, 1em;
+  background-color: var(--yellow);
+  color: var(--dark-text);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .nav-btn:hover {
   color: #6677ee;
 }
+
+/* Login & Signup Modals */
 
 .modal-background {
   position: fixed;
@@ -165,6 +232,19 @@
   border-radius: 3px;
   border: 0;
   line-height: 20px;
+  background-color: var(--yellow);
+  margin-left: 1.5em;
+  color: var(--dark-text);
+}
+
+h3 {
+  color: var(--dark-text);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .modal-btn:hover {
@@ -267,3 +347,14 @@
 /* .all-cities-link {
   
 } */
+/* carousel */
+.carousel {
+  display: block;
+  /* margin: 1rem; */
+  height: 25%;
+  width: 100%;
+}
+
+.clearfix {
+  overflow: auto;
+}
