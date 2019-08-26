@@ -163,3 +163,24 @@
 .city-banner {
   width: 50%
 }
+
+
+.city-detail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "sidebar main"
+}
+
+.city-sidebar {
+  grid-area: sidebar;
+}
+
+.city-content {
+  grid-area: main;
+}
+
+.city-info {
+  overflow: hidden;
+}
+
+

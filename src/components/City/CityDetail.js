@@ -7,67 +7,72 @@ import CitiesContainer from "./CitiesContainer"
 
 class CityDetail extends Component {
     state = {
+        id: null,
         name: "",
         image: "",
         description: "",
         posts: []
     }
 
-  // grab the city detail from database
-  getDetail = (id) => {
-    console.log('id: ', id)
-    axios.get(`${API_URL}/cities/${id}`, { withCredentials: true })
-    .then(res=> {
-        console.log('city', res.data)
-        this.setState({
-            name: res.data.name,
-            image: res.data.image,
-            description: res.data.description,
-        })
-        console.log(this.state)
-    })
-    .catch(err=>console.log(err))
-}
+    // grab the city detail from database
+    getDetail = (id) => {
+        console.log('id: ', id)
+        axios.get(`${API_URL}/cities/${id}`, { withCredentials: true })
+            .then(res=> {
+                console.log('city', res.data)
+                this.setState({
+                    id: id,
+                    name: res.data.name,
+                    image: res.data.image,
+                    description: res.data.description,
+                })
+                console.log('city state: ', this.state)
+            })
+            .catch(err=>console.log(err))
+    }
 
 
 
-  // grab all posts from database
-  getPosts = (id) => {
+    // grab all posts from database
+    getPosts = (id) => {
         console.log('id: ', id)
         axios.get(`${API_URL}/posts/cityposts/${id}`, { withCredentials: true })
-        .then(res=> {
-            console.log('city posts: ', res.data)
-            this.setState({posts: res.data})
-            console.log(this.state)
-        })
-        .catch(err=>console.log(err))
-  }
-
-
-  componentDidMount() {
-    if (this.props.match && this.props.match.params.id) {
-        // grab the params from match
-        this.getPosts(this.props.match.params.id)
-        this.getDetail(this.props.match.params.id)
+            .then(res=> {
+                console.log('city posts: ', res.data)
+                this.setState({posts: res.data})
+                console.log('city posts state: ', this.state)
+            })
+            .catch(err=>console.log(err))
     }
-    console.log('city detail: ', this.props)
-  }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.match && newProps.match.params.id && newProps.match.params.id !== this.state.id) {
+            console.log('new props')
+            // grab the params from match
+            this.getPosts(newProps.match.params.id)
+            this.getDetail(newProps.match.params.id)
+        }
+        console.log('city detail: ', newProps)
+    }
 
 
-  render() {
-    return (
-      <div>
-          <section className="city-content">
-                <h2>{this.state.name}</h2>
-                <p>{this.state.description}</p>
-                <img src={this.state.image} alt={this.state.name} className="city-banner"/>
-          </section>
-          <PostList posts={this.state.posts} />
-          <CitiesContainer cities={this.props.cities}/>
+    render() {
+        return (
+            <div className='city-detail-wrapper'>
+                <section className="city-content">
+                    <div className="city-info">
+                        <h2>{this.state.name}</h2>
+                        <img src={this.state.image} alt={this.state.name} className="city-banner"/>
+                        <p>{this.state.description}</p>
+                    </div>
+                    <PostList posts={this.state.posts} />
+                </section>
+          
+                <CitiesContainer className="city-sidebar" cities={this.props.cities}/>
 
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 };
 
 export default withRouter(CityDetail);
