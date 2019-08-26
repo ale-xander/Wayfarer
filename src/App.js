@@ -18,15 +18,19 @@ class App extends React.Component {
     showSignupModal: false,
     showLoginModal: false,
     showAddPostModal: false,
-    currentCityId: null,
-    cities: []
+    modalCallback: null,
+    cities: [],
   }
 
   addPost = (newPost) => {
-    console.log(newPost)
+    console.log('addPost: ', newPost)
     this.setState({
       showAddPostModal: false,
     })
+
+    if (this.state.modalCallback) {
+      this.state.modalCallback(newPost)
+    }
   }
 
   // after App component mount 
@@ -51,7 +55,7 @@ class App extends React.Component {
     console.log(this.state)
 
     this.props.history.push(`/users/${user._id}`)
-  };
+  }
 
   // grab all cities from database
   getAllCites = () => {
@@ -95,7 +99,7 @@ class App extends React.Component {
         undefined }
 
         { this.state.showAddPostModal ? 
-        <AddPostModal cityId={this.state.currentCityId} onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
+        <AddPostModal onCancel={()=>{this.setState({showAddPostModal: false})}} addPost={this.addPost}/> :
         undefined }
 
         {/* Using component without < /> */}
@@ -103,17 +107,17 @@ class App extends React.Component {
 
         {/* Router is component should be used as such */}
     
-      {/* passing cities, currentUser down to Router */}
+        {/* passing cities, currentUser down to Router */}
         <Router 
-        cities={this.state.cities} 
-        currentUser={this.state.currentUser} 
-        onNewPost={(cityId) => {
-            console.log('new post')
-            this.setState({
-              currentCityId: cityId,
-              showAddPostModal: true
-            })
-          }} />
+          cities={this.state.cities} 
+          currentUser={this.state.currentUser} 
+          onNewPost={(handleSubmit) => {
+              this.setState({
+                showAddPostModal: true,
+                modalCallback: handleSubmit,
+              })
+            }}
+          />
 
 
       </div>

@@ -18,20 +18,16 @@ const handleSubmit = (evt, newUserRegistered) => {
     console.log(user)
 
     axios.post(`${API_URL}/auth/register`, user, { withCredentials: true }) // ask for authentications and authorization, tells server we have cookies
-    .then(res => {
-      console.log('creating user')
-      console.log(res);
-      newUserRegistered()
-    })
-    .catch(err => {
-      console.log(err);
-    //   this.setState({ error: err.response.data.message });
-    });
-
+        .then(res => {
+            console.log('creating user')
+            console.log(res);
+            newUserRegistered()
+        })
+        .catch(err => {
+            console.log(err);
+            //   this.setState({ error: err.response.data.message });
+        });
 }
-
-
-
 
 function SignUpModal({ onCancel, newUserRegistered}) {
     return (
