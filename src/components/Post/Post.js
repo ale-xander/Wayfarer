@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const Post = ({post:{title, content, image}}) => {
+const Post = ({post:{title, content, image, _id}, deletePost}) => {
     return (
 
         // <div>
@@ -15,7 +15,7 @@ const Post = ({post:{title, content, image}}) => {
                 <img src={ image } alt="" />
                 <p className="card-text">{ content }</p>
                 <button type="submit" className="post-edit-button post-update-buttons">Edit</button>
-                <button type="submit" className="post-delete-button post-update-buttons">Delete</button>
+                <button type="submit" className="post-delete-button post-update-buttons" onClick={()=>{deletePost(_id)}}>Delete</button>
                 
             </div>
 
