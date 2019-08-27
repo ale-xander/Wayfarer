@@ -3,16 +3,16 @@ import React, {Component} from 'react';
 class Carousel extends Component {
     render() {
         return (
-            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" data-interval="3000">
+            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" data-interval="2500">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                     <img src="https://img.andrewprokos.com/TORONTO-PANORAMIC-SKYLINE-DUSK-1200PX.jpg" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="http://panoramicvisions.com/images/banner-img11.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://i.imgur.com/IdQbfbg.jpg" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTa0XdDB0mfhQHhPwmlXq9-NrXfI8RzDbbZoEgXVUaibpuaLr" className="d-block w-100" alt="..." />
+                    <img src="https://i.imgur.com/alSqEz8.jpg" className="d-block w-100" alt="..." />
                 </div>
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

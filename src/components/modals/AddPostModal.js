@@ -6,11 +6,11 @@ import { API_URL } from '../../constants';
 // AddPostModal rendered by App, onSubmit -> call addPost (function passed down by App) with newPost
 function AddPostModal({ onCancel, addPost }) {
     return (
-        <div className="modal-background signup-modal" onClick={onCancel}>
+        <div className="modal-fade signup-modal" onClick={onCancel}>
             {/* stop event bubbling */}
-            <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}> 
+            <div className="modal-window modal-dialog" role="document" onClick={(evt) => {evt.stopPropagation()}}> 
                 {/* pass setCurrentUser to handleSubmit */}
-                <form className="modal-form" onSubmit={(evt) => {
+                <form className="modal-form modal-content" onSubmit={(evt) => {
                     evt.preventDefault()
                     const newPost = {
                         title: evt.target.querySelector('#title').value,
@@ -19,7 +19,7 @@ function AddPostModal({ onCancel, addPost }) {
 
                     addPost(newPost)
                 }}  >
-                    <h3>Create Post</h3>
+                    <h3 className="modal-text-center">New Post</h3>
                     <div className="input-group">
                         <label htmlFor="title">Title</label>
                         <input name="title" id="title"></input>
