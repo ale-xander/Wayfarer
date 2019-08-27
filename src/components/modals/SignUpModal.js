@@ -31,12 +31,12 @@ const handleSubmit = (evt, newUserRegistered) => {
 
 function SignUpModal({ onCancel, newUserRegistered}) {
     return (
-        <div className="modal-background signup-modal" onClick={onCancel}>
+        <div className="modal-fade signup-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" onClick={onCancel}>
             {/* stop event bubbling */}
-            <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}> 
+            <div className="modal-window modal-dialog" role="document" onClick={(evt) => {evt.stopPropagation()}}> 
                 {/* pass setCurrentUser to handleSubmit */}
-                <form className="modal-form" onSubmit={(evt) => handleSubmit(evt, newUserRegistered)}  >
-                    <h3>Sign up</h3>
+                <form className="modal-form modal-content" onSubmit={(evt) => handleSubmit(evt, newUserRegistered)}  >
+                    <h3 className="modal-text-center">Sign up</h3>
                     <div className="input-group">
                         <label htmlFor="username">Username</label>
                         <input name="username" id="username"></input>
@@ -60,6 +60,35 @@ function SignUpModal({ onCancel, newUserRegistered}) {
                 </form>
             </div>
         </div>
+        // <div className="modal-background signup-modal" onClick={onCancel}>
+        //     {/* stop event bubbling */}
+        //     <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}> 
+        //         {/* pass setCurrentUser to handleSubmit */}
+        //         <form className="modal-form" onSubmit={(evt) => handleSubmit(evt, newUserRegistered)}  >
+        //             <h3>Sign up</h3>
+        //             <div className="input-group">
+        //                 <label htmlFor="username">Username</label>
+        //                 <input name="username" id="username"></input>
+        //             </div>
+        //             <div className="input-group">
+        //                 <label htmlFor="email">Email</label>
+        //                 <input name="email" id="email" type="email"></input>
+        //             </div>
+        //             <div className="input-group">
+        //                 <label htmlFor="password">Password</label>
+        //                 <input name="password" id="password" type="password"></input>
+        //             </div>
+        //             <div className="input-group">
+        //                 <label htmlFor="password2">Confirm password</label>
+        //                 <input name="password2" id="password2" type="password"></input>
+        //             </div>
+        //             <div className="modal-form-footer">
+        //                 <button className="modal-btn" type="submit">Submit</button>
+        //                 <button className="modal-btn" type="button" onClick={onCancel}>Cancel</button>
+        //             </div>
+        //         </form>
+        //     </div>
+        // </div>
     )
 }
 

@@ -38,10 +38,29 @@ const handleSubmit = (evt, setCurrentUser, history) => {
 
 function LoginModal({ onCancel, setCurrentUser, history}) {
     return (
-        <div className="modal-background signup-modal" onClick={onCancel}>
-            <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}>
-                <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
-                    <h3>Login</h3>
+        // <div className="modal-background signup-modal" onClick={onCancel}>
+        //     <div className="modal-window" onClick={(evt) => {evt.stopPropagation()}}>
+        //         <form className="modal-form" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
+        //             <h3>Login</h3>
+        //             <div className="input-group">
+        //                 <label htmlFor="email">Email</label>
+        //                 <input name="email" id="email" type="email"></input>
+        //             </div>
+        //             <div className="input-group">
+        //                 <label htmlFor="password">Password</label>
+        //                 <input name="password" id="password" type="password"></input>
+        //             </div>
+        //             <div className="modal-form-footer">
+        //                 <button className="modal-btn" type="submit">Submit</button>
+        //                 <button className="modal-btn" type="button" onClick={onCancel}>Cancel</button>
+        //             </div>
+        //         </form>
+        //     </div>
+        // </div>
+        <div className="modal-fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" onClick={onCancel}>
+            <div className="modal-window modal-dialog" role="document" onClick={(evt) => {evt.stopPropagation()}}>
+                <form className="modal-form modal-content" onSubmit={(evt) => {handleSubmit(evt, setCurrentUser)}}>
+                    <h3 className="modal-text-center">Login</h3>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input name="email" id="email" type="email"></input>

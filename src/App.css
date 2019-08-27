@@ -20,6 +20,15 @@
   text-align: center;
 } */
 
+.modal-content {
+  padding: 0.5rem;
+  /* background: var(--alabaster); */
+}
+
+/* .modal-dialog {
+  
+} */
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -81,6 +90,7 @@ h1 {
   
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  /* margin-left: 0.5rem; */
 }
 
 .main-nav-bar {
@@ -88,7 +98,6 @@ h1 {
   height: 80px;
   padding: 10px 20px;
   background: var(--dark-green);
-
 }
 
 .brand-link {
@@ -155,28 +164,35 @@ h1 {
 
 /* Login & Signup Modals */
 
-.modal-background {
+/* .modal-background { */
+.modal-fade {
   position: fixed;
-  display: block;
+  /* display: block; */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.3);
+  /* background-color: rgba(255,255,255,0.2); */
+  background-color: rgba(0,0,0,0.7);
   z-index: 1000 
 }
 
 .modal-window {
   position: absolute;
-  display: block;
+  /* display: block; */
   margin: 0 auto;
   left: 50%;
   margin-left: -300px;
   width: 600px;
   padding: 20px;
   border-radius: 3px;
-  box-shadow: 5px 10px 5px rgba(0,0,0,0.2);
-  background-color: #fff;
+  box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.3);
+  /* background-color: #fff; */
+  background-color: var(--yellow);
+}
+
+.modal-text-center {
+  text-align: center;
 }
 
 .input-group {
@@ -226,13 +242,14 @@ h3 {
 }
 
 .city-banner {
-  width: 50%
+  width: 30em;
+  height: 20em;
 }
 
 
 .city-detail-wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-areas: "sidebar main"
 }
 
@@ -256,12 +273,22 @@ h3 {
   width: 10em;
   margin: .3em;
   font-size: 1.5em;
+  color: var(--dark-green);
+}
+
+.selectedCity:hover {
+  color: #FEFEFE;
+}
+
+button:focus {
+  outline: none;
 }
 
 .city-container {
   background: var(--dark-green);
   padding: .8em;
   max-width: 18em;
+  max-height: 500px;
 }
 .inactiveCity{
   background: var(--ash-grey);
@@ -271,7 +298,13 @@ h3 {
   font-size: 1.5em;
   width: 10em;
   margin: .3em;
-  color: #2b2b2b;
+  color: var(--dark-green);
+  /* text-decoration: none; */
+}
+
+.inactiveCity:hover {
+  background-color: var(--yellow);
+  color: var(--dark-grey)!important;
 }
 /* Post detail card */
 
@@ -280,17 +313,63 @@ h3 {
   background: var(--ash-grey);
 }
 
+/* Profile Page Grid */
+.profile-post-list {
+display: grid;
+grid-template-areas:  
+" all-cities-link ."
+"  profile-header ."
+"  profile-picture profile-posts "
+}
+
+.signup-date {
+  grid-area: signup-date;
+  width: 10em;
+}
+
+.all-cities-link {
+  grid-area: all-cities-link;
+  margin-bottom: 1em;
+}
+
+.profile-posts {
+  grid-area: profile-posts;
+}
+
+.profile-post-list {
+  width: 80%;
+}
+
+.profile-header {
+  grid-area: profile-header;
+}
+
+.profile-picture {
+  /* height: 15em; */
+  height: 10%;
+  width: 15%;
+  /* width: 20em; */
+  margin: 2em;
+  grid-area: profile-picture;
+}
+
+.profile-pic{
+  height: 15em;
+  width: 20em;
+  margin-bottom: 2em;
+}
+
 .post-update-buttons {
   /* display: inline-flex;
   flex-direction: row-reverse; */
-  
   margin: 0 0.3em 0 2em;
-  padding: .5em;
+  padding: .2em;
   background-color: var(--yellow);
   border-radius: 0.2em;
   border: none;
   font-size: 1em;
   float: right;
+  width: 4em;
 }
 
 .clearfix::after {
@@ -318,7 +397,9 @@ h3 {
 
 .city-banner {
   margin-right: 1em;
-  width: 100%;
+  width: 30em;
+  height: 20em;
+  padding-right: 1em;   
 }
 
 .city-name {
@@ -346,6 +427,7 @@ h3 {
 
 .city-content {
   padding: 2rem 0 0 0;
+  margin-left: -2em;
   
 }
 
@@ -363,8 +445,9 @@ h3 {
 .carousel {
   display: block;
   /* margin: 1rem; */
-  height: 25%;
+  height: 30%;
   width: 100%;
+  z-index: -2;
 }
 
 .clearfix {
