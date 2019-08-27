@@ -11,6 +11,30 @@ class ProfileContainer extends Component {
       posts: []
     }
 
+
+  // delete post function here, pass down postList, to post 
+  // take an post id
+  // axios call to delete 
+  // on response, only log it out 
+  // set state update posts array by using filter 
+
+
+deletePost = (_id) => {
+  console.log("deleting")
+  console.log(_id)
+
+  axios.delete(`${API_URL}/posts/${_id}`, { withCredentials: true })
+  .then(res=>{console.log(res)})
+  .catch(err=>{console.log(err)})
+
+  const newPosts = this.state.posts.filter(post=>post._id!==_id)
+
+  this.setState({posts: newPosts})
+
+}
+
+
+
   // grab all posts from database
   getPosts = () => {
     axios.get(`${API_URL}/posts/userposts/${this.props.currentUser._id}`, { withCredentials: true })
@@ -35,7 +59,7 @@ class ProfileContainer extends Component {
         <h2> Welcome {this.props.currentUser.username} </h2>
 
         {/* render */}
-        <PostList  posts={this.state.posts}/>
+        <PostList  posts={this.state.posts} deletePost={this.deletePost}/>
 
       </div>
     )
