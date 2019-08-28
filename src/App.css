@@ -1,0 +1,455 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors  */
+ --dark-green: #003300;
+ --yellow: #efcb68;
+ --alabaster: #e1efe6;
+ --ash-grey: #aeb7b3;
+ --black: #000000;
+ --mint-cream: #F5FFFA;
+ --white-smoke: #F5F5F5;
+}
+/* .App {
+  text-align: center;
+} */
+
+.modal-content {
+  padding: 0.5rem;
+  /* background: var(--alabaster); */
+}
+
+/* .modal-dialog {
+  
+} */
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* .App {
+  background-color: var(--dark-green);
+} */
+
+/* popular cities */
+.container  {
+  display: grid;
+  grid-template-areas:  " . left center right .";
+  text-align: left;
+  /* background-color: var(--light-background); */
+  /* margin: 3rem; */
+
+}
+.city1  {
+  grid-area: left;
+}
+.city2  {
+  grid-area: center;
+}
+.city3  {
+  grid-area: right;
+}
+.city-style {
+  padding: 1.5rem;
+  /* border: 1px solid black; */
+}
+
+h1 {
+  
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  /* margin-left: 0.5rem; */
+}
+
+.main-nav-bar {
+  position: relative;
+  height: 80px;
+  padding: 10px 20px;
+  background: var(--dark-green);
+}
+
+.brand-link {
+  color: #aaa
+}
+
+.brand-link:hover {
+  text-decoration: none;
+  color: #6677ee
+}
+
+.brand-header {
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: 600;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Dancing Script', cursive;
+  line-height: 3rem;
+  color: var(--yellow);
+  margin-top: 0.2rem;
+}
+
+.nav-links {
+  height: 60px;
+  float: right;
+  width: 50%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.nav-links > li {
+  list-style: none;
+}
+
+.nav-btn {
+  appearance: none;
+  border: none;
+  display: block;
+  padding: 0 1rem;
+  line-height: 2.5em;
+  float: right;
+  margin-right: 1em;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  border-radius: 0.5em;
+  padding: 0, 1em;
+  background-color: var(--yellow);
+  color: var(--dark-text);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.nav-btn:hover {
+  color: #6677ee;
+}
+
+/* Login & Signup Modals */
+
+.modal-background {
+  position: fixed;
+  /* display: block; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255,255,255,0.2); */
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1000 
+}
+
+.modal-window {
+  position: absolute;
+  /* display: block; */
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -300px;
+  width: 600px;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.3);
+  background-color: #fff;
+}
+
+.modal-text-center {
+  text-align: center;
+}
+
+.input-group {
+  position: relative;
+  margin: 0 0 20px 0;
+}
+
+.input-group > label {
+  margin: 0  
+}
+
+.input-group > input {
+  display: block;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.modal-form-footer {
+  position: relative;
+  height: 40px;
+}
+
+.modal-btn {
+  float: right;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 0;
+  line-height: 20px;
+  background-color: var(--yellow);
+  margin-left: 1.5em;
+  color: var(--dark-text);
+}
+
+h3 {
+  color: var(--dark-text);
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.modal-btn:hover {
+  color: #6677ee;
+}
+
+.city-detail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "sidebar main"
+}
+
+.city-sidebar {
+  grid-area: sidebar;
+}
+
+.city-content {
+  grid-area: main;
+}
+
+.city-info {
+  overflow: hidden;
+}
+
+.selectedCity{
+  background: var(--yellow);
+  border-radius: 5em;
+  padding: .9em;
+  border: 0px solid;
+  width: 10em;
+  margin: .3em;
+  font-size: 1.5em;
+  color: var(--dark-green);
+}
+
+.selectedCity:hover {
+  color: #FEFEFE;
+}
+
+button:focus {
+  outline: none;
+}
+
+.city-container {
+  background: var(--dark-green);
+  padding: .8em;
+  max-width: 18em;
+  max-height: 500px;
+}
+.inactiveCity{
+  background: var(--ash-grey);
+  border-radius: 5em;
+  padding: .8em;
+  border: 0px solid;
+  font-size: 1.5em;
+  width: 10em;
+  margin: .3em;
+  color: var(--dark-green);
+  /* text-decoration: none; */
+}
+
+.inactiveCity:hover {
+  background-color: var(--yellow);
+  color: var(--dark-grey)!important;
+}
+/* Post detail card */
+
+.post-card {
+  margin: 1em 2em 1em 0;
+  background: var(--ash-grey);
+}
+
+/* Profile Page Grid */
+.profile-post-list {
+display: grid;
+grid-template-areas:  
+" all-cities-link ."
+"  profile-header ."
+"  profile-picture profile-posts "
+}
+
+.signup-date {
+  grid-area: signup-date;
+  width: 10em;
+}
+
+.all-cities-link {
+  grid-area: all-cities-link;
+  margin-bottom: 1em;
+}
+
+.profile-posts {
+  grid-area: profile-posts;
+}
+
+.profile-post-list {
+  width: 80%;
+}
+
+.profile-header {
+  grid-area: profile-header;
+}
+
+.profile-picture {
+  /* height: 15em; */
+  height: 10%;
+  width: 15%;
+  /* width: 20em; */
+  margin: 2em;
+  grid-area: profile-picture;
+}
+
+.profile-pic{
+  height: 15em;
+  width: 20em;
+  margin-bottom: 2em;
+}
+
+.post-update-buttons {
+  /* display: inline-flex;
+  flex-direction: row-reverse; */
+  margin: 0 0.3em 0 2em;
+  padding: .2em;
+  background-color: var(--yellow);
+  border-radius: 0.2em;
+  border: none;
+  font-size: 1em;
+  float: right;
+  width: 4em;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.post-title {
+  background: var(--dark-green);
+  color: var(--ash-grey);
+  font-size: 1.5em;
+}
+
+.post-content {
+  padding: 1em;
+  background: var(--white-smoke);
+}
+
+.city-profile {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 2em; */
+}
+
+.city-banner {
+  margin-right: 1.8em;
+  width: 30em;
+  height: 20em;
+  /* padding-right: 1em;    */
+}
+
+.city-name {
+  font-size: 3em;
+}
+
+.city-description {
+  padding-right: 5em;
+}
+
+.post-interaction {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 2em 0 0;
+}
+
+.post-interaction > h2 {
+  font-size: 1.5em;
+}
+
+.post-add-button {
+  padding: .5em;
+  background: var(--yellow);
+}
+
+.city-content {
+  padding: 2rem 0 0 0;
+  margin-left: -2em;
+  
+}
+
+/* Profile All Posts */
+
+.profile-post-list {
+  margin: 2em;
+ 
+}
+
+/* .all-cities-link {
+  
+} */
+/* carousel */
+.carousel {
+  display: block;
+  /* margin: 1rem; */
+  height: 30%;
+  width: 100%;
+  z-index: -2;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+/* sidebar */
+.show-highlight {
+  background: rgb(190, 218, 140)
+ }
+ 
+ .city-sidebar-list {
+  margin: 5em;
+  list-style-type: none
+ }
